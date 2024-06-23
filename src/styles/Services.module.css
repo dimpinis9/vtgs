@@ -1,0 +1,21 @@
+.container {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+.main {
+  padding: 2rem;
+}
+
+.service {
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 5px;
+  background: #f9f9f9;
+}
+
+.service h2 {
+  color: #0070f3;
+}
