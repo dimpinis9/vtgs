@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "../styles/Navbar.module.css";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +15,11 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.logo}>VTGS</div>
+      <div className={styles.logo}>
+        <a href="/">
+          <Image src="/logo.jpg" alt="VTGS Logo" width={50} height={50} />
+        </a>
+      </div>
       <div className={styles.hamburger} onClick={toggleMenu}>
         <div className={styles.bar}></div>
         <div className={styles.bar}></div>
@@ -22,10 +27,10 @@ const Navbar = () => {
       </div>
       <ul className={`${styles.navLinks} ${isOpen ? styles.open : ""}`}>
         <li onClick={closeMenu}>
-          <a href="/">Home</a>
+          <a href="/">Αρχική</a>
         </li>
         <li onClick={closeMenu}>
-          <a href="/services">Services</a>
+          <a href="/services">Πολιτικές της VTGS</a>
         </li>
         {/* <li onClick={closeMenu}>
           <a href="/team">Team</a>

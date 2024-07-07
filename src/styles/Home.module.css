@@ -53,6 +53,10 @@
   color: #333;
 }
 
+.about h2 {
+  text-align: center; /* Κεντράρισμα του τίτλου */
+}
+
 .services ul {
   list-style-type: none;
   padding: 0;

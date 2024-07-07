@@ -19,54 +19,52 @@ export default function Home() {
 
       <header className={styles.header}>
         <div className={styles.overlay}>
-          <h1 className={styles.title}>Welcome to VTGS</h1>
+          <h1 className={styles.title}>Καλωσήρθατε στην VTGS</h1>
           <p className={styles.subtitle}>
-            Your trusted partner in business solutions.
+            Η Εταιρεία παροχής ολοκληρωμένων συμβουλευτικών και εκπαιδευτικών
+            υπηρεσιών.
           </p>
         </div>
       </header>
 
       <main className={styles.main}>
         <section id="about" className={styles.about}>
-          <h2>About Us</h2>
+          <h2>Λίγα Λόγια για την Επιχείρηση</h2>
           <p>
-            VTGS is a leading provider of innovative business solutions. Our
-            mission is to help you achieve your goals with our expert services
-            and cutting-edge technology.
+            Η επιχείρηση «VTGS ΜΟΝΟΠΡΟΣΩΠΗ ΙΚΕ» και ο διακριτικός τίτλος « VTGS
+            ΙΚΕ» παρέχει σύστημα παροχής υπηρεσιών καλύπτοντας κάθε ανάγκη
+            οργανισμού του δημόσιου ή του ιδιωτικού τομέα στον τομέα της
+            εκπαίδευσης, συμβουλευτικής, οργάνωσης και λειτουργίας για
+            λογαριασμό τρίτων, εξειδικευμένου ανθρώπινου δυναμικού καθώς και
+            στην παροχή υπηρεσιών αναψυχής σχετικών με το θαλάσσιο περιβάλλον.
+          </p>
+          <p>
+            Η «VTGS ΜΟΝΟΠΡΟΣΩΠΗ ΙΚΕ» είναι επιχείρηση παροχής ολοκληρωμένων
+            συμβουλευτικών και εκπαιδευτικών υπηρεσιών σε επιχειρήσεις,
+            οργανισμούς, και ιδιώτες επαγγελματίες. Σκοπός της είναι η παροχή
+            ολοκληρωμένης υποστήριξης με στόχο την προσφορά ρεαλιστικών και
+            ουσιαστικών λύσεων για τη βελτίωση της ανταγωνιστικότητας των
+            επιχειρήσεων και την αύξηση της αποδοτικότητας και παραγωγικότητας
+            των στελεχών τους.
+          </p>
+          <p>
+            Οι υπηρεσίες της προσανατολισμένες στις ιδιαίτερες απαιτήσεις του
+            πελάτη ανανεώνονται και προσαρμόζονται διαρκώς στις αλλαγές και
+            εξελίξεις που υπαγορεύουν τα Διεθνή και Ευρωπαϊκά πρότυπα για την
+            επιτυχία του «Επιχειρείν». Έτσι, καλύπτουν ολοένα και περισσότερους
+            τομείς επιχειρηματικής δράσης μεταδίδοντας εμπειρία σε πραγματικές
+            συνθήκες εργασίας.
           </p>
         </section>
 
         <section id="services" className={styles.services}>
-          <h2>Our Services</h2>
+          <h2>Οι Πολιτικές της Εταιρείας μας</h2>
           <ul>
-            <li>Consulting</li>
-            <li>Technology Solutions</li>
-            <li>Business Strategy</li>
+            <li>Ποιότητα</li>
+            <li>Προστασία του Περιβάλλοντος</li>
+            <li>Υγεία και Ασφάλεια</li>
+            <li>Καταπολέμηση της Βίας και Παρενόχληση στην Εργασία</li>
           </ul>
-        </section>
-
-        <section id="testimonials" className={styles.testimonials}>
-          <h2>Testimonials</h2>
-          <p>
-            "VTGS transformed our business processes and helped us achieve
-            remarkable growth." - Client A
-          </p>
-          <p>
-            "The team at VTGS is professional, knowledgeable, and dedicated to
-            client success." - Client B
-          </p>
-        </section>
-
-        <section id="projects" className={styles.projects}>
-          <h2>Recent Projects</h2>
-          <div className={styles.project}>
-            <h3>Project 1</h3>
-            <p>Description of Project 1...</p>
-          </div>
-          <div className={styles.project}>
-            <h3>Project 2</h3>
-            <p>Description of Project 2...</p>
-          </div>
         </section>
       </main>
 
