@@ -17,7 +17,7 @@ const Footer = () => {
               <a href="#about">About Us</a>
             </li>
             <li>
-              <a href="#services">Our Services</a>
+              <a href="#policies">Our Services</a>
             </li>
             <li>
               <a href="#contact">Contact Us</a>
@@ -25,9 +25,9 @@ const Footer = () => {
           </ul>
         </div>
         <div className={styles.footerSection}>
-          <h3>Contact Us</h3>
-          <p>Email: info@vtgs.com</p>
-          <p>Phone: +1 234 567 890</p>
+          <h3>Επικοινωνήστε Μαζί μας</h3>
+          <p>Email: vtgsike@yahoo.com</p>
+          <p>Τηλέφωνο: 213-0314047</p>
         </div>
         <div className={styles.footerSection}>
           <h3>Follow Us</h3>

@@ -35,7 +35,7 @@
 }
 
 .about,
-.services,
+.policies,
 .testimonials,
 .projects,
 .contact {
@@ -46,7 +46,7 @@
 }
 
 .about h2,
-.services h2,
+.policies h2,
 .testimonials h2,
 .projects h2,
 .contact h2 {
@@ -57,12 +57,12 @@
   text-align: center; /* Κεντράρισμα του τίτλου */
 }
 
-.services ul {
+.policies ul {
   list-style-type: none;
   padding: 0;
 }
 
-.services li {
+.policies li {
   background: #eaeaea;
   margin: 0.5rem 0;
   padding: 0.75rem;

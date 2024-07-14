@@ -16,9 +16,9 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo}>
-        <a href="/">
+        {/* <a href="/">
           <Image src="/logo.jpg" alt="VTGS Logo" width={50} height={50} />
-        </a>
+        </a> */}
       </div>
       <div className={styles.hamburger} onClick={toggleMenu}>
         <div className={styles.bar}></div>
@@ -30,7 +30,11 @@ const Navbar = () => {
           <a href="/">Αρχική</a>
         </li>
         <li onClick={closeMenu}>
-          <a href="/services">Πολιτικές της VTGS</a>
+          <a href="/policies">Πολιτικές της VTGS</a>
+        </li>
+
+        <li onClick={closeMenu}>
+          <a href="/services">Υπηρεσίες της VTGS</a>
         </li>
         {/* <li onClick={closeMenu}>
           <a href="/team">Team</a>
