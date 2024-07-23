@@ -1,9 +1,9 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFacebook,
-  faTwitter,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import {
+//   faFacebook,
+//   faTwitter,
+//   faLinkedin,
+// } from "@fortawesome/free-brands-svg-icons";
 import styles from "../styles/Footer.module.css";
 
 const Footer = () => {
@@ -11,16 +11,16 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerSection}>
-          <h3>Quick Links</h3>
+          <h3>Σύνδεσμοι</h3>
           <ul>
             <li>
-              <a href="#about">About Us</a>
+              <a href="/">Αρχική</a>
             </li>
             <li>
-              <a href="#policies">Our Services</a>
+              <a href="policies">Οι Πολιτικές μας</a>
             </li>
             <li>
-              <a href="#contact">Contact Us</a>
+              <a href="services">Οι Υπηρεσίας μας</a>
             </li>
           </ul>
         </div>
@@ -29,7 +29,7 @@ const Footer = () => {
           <p>Email: vtgsike@yahoo.com</p>
           <p>Τηλέφωνο: 213-0314047</p>
         </div>
-        <div className={styles.footerSection}>
+        {/* <div className={styles.footerSection}>
           <h3>Follow Us</h3>
           <div className={styles.socialLinks}>
             <a href="#">
@@ -42,7 +42,7 @@ const Footer = () => {
               <FontAwesomeIcon icon={faLinkedin} size="2x" />
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className={styles.footerBottom}>
         <p>&copy; 2024 VTGS. All rights reserved.</p>
