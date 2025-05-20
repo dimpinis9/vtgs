@@ -10,13 +10,12 @@ export default function MyApp({ Component, pageProps }) {
       theme={{
         algorithm: defaultAlgorithm,
         token: {
-          // Κύρια χρώματα
-          colorPrimary: "#000000", // μαύρο
-          colorText: "#333333", // σκούρο γκρι
-          colorBorder: "#e0e0e0", // ανοιχτό γκρι
-          colorBgLayout: "#ffffff", // λευκό background για Layout
-          colorBgContainer: "#fafafa", // πολύ ανοιχτό γκρι containers
-          borderRadius: 4, // ή ό,τι value θες
+          colorPrimary: "#000000",
+          colorText: "#333333",
+          colorBorder: "#e0e0e0",
+          colorBgLayout: "#ffffff",
+          colorBgContainer: "#fafafa",
+          borderRadius: 4,
         },
       }}
     >
