@@ -1,53 +1,59 @@
 import { useState } from "react";
-import styles from "../styles/Navbar.module.css";
-import Image from "next/image";
+import { Drawer, Button, Menu, Grid } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
+import Link from "next/link";
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const { useBreakpoint } = Grid;
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+const menuItems = [
+  { key: "home", label: <Link href="/">Αρχική</Link> },
+  { key: "policies", label: <Link href="/policies">Πολιτικές της VTGS</Link> },
+  { key: "services", label: <Link href="/services">Υπηρεσίες της VTGS</Link> },
+];
 
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+  const screens = useBreakpoint();
 
   return (
-    <nav className={styles.navbar}>
-      <div className={styles.logo}>
-        {/* <a href="/">
-          <Image src="/logo.jpg" alt="VTGS Logo" width={50} height={50} />
-        </a> */}
-      </div>
-      <div className={styles.hamburger} onClick={toggleMenu}>
-        <div className={styles.bar}></div>
-        <div className={styles.bar}></div>
-        <div className={styles.bar}></div>
-      </div>
-      <ul className={`${styles.navLinks} ${isOpen ? styles.open : ""}`}>
-        <li onClick={closeMenu}>
-          <a href="/">Αρχική</a>
-        </li>
-        <li onClick={closeMenu}>
-          <a href="/policies">Πολιτικές της VTGS</a>
-        </li>
-
-        <li onClick={closeMenu}>
-          <a href="/services">Υπηρεσίες της VTGS</a>
-        </li>
-        {/* <li onClick={closeMenu}>
-          <a href="/team">Team</a>
-        </li>
-        <li onClick={closeMenu}>
-          <a href="/blog">Blog</a>
-        </li> */}
-        {/* <li onClick={closeMenu}>
-          <a href="/contact">Contact</a>
-        </li> */}
-      </ul>
-    </nav>
+    <>
+      {screens.md ? (
+        <Menu
+          theme="dark"
+          mode="horizontal"
+          items={menuItems}
+          style={{
+            background: "#333333",
+          }}
+        />
+      ) : (
+        <>
+          <Button
+            type="text"
+            icon={
+              <MenuOutlined style={{ fontSize: "1.5rem", color: "#fff" }} />
+            }
+            onClick={() => setOpen(true)}
+          />
+          <Drawer
+            title="VTGS ΙΚΕ"
+            placement="left"
+            onClose={() => setOpen(false)}
+            open={open}
+            styles={{
+              header: { background: "#333333", color: "#fff" },
+              body: { padding: 0 },
+            }}
+          >
+            <Menu
+              mode="vertical"
+              items={menuItems}
+              onClick={() => setOpen(false)}
+              style={{ borderRight: 0 }}
+            />
+          </Drawer>
+        </>
+      )}
+    </>
   );
-};
-
-export default Navbar;
+}

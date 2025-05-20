@@ -1,55 +1,74 @@
+// pages/index.js
 import Head from "next/head";
+import dynamic from "next/dynamic";
+import { Layout } from "antd";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import styles from "../styles/Home.module.css";
+import Hero from "../components/Hero";
+import About from "../components/About";
+import AppFooter from "../components/Footer";
+
+const { Header, Content } = Layout;
+const shouldShowCarousel =
+  process.env.NODE_ENV === "development" ||
+  process.env.NEXT_PUBLIC_ENABLE_CAROUSEL === "true";
+
+const HighlightsCarousel = shouldShowCarousel
+  ? dynamic(() => import("../components/HighlightsCarousel"), {
+      ssr: false,
+      loading: () => null,
+    })
+  : () => null;
 
 export default function Home() {
   return (
-    <div className={styles.container}>
+    <Layout>
       <Head>
         <title>VTGS - Home</title>
         <meta
           name="description"
-          content="Welcome to VTGS - Your trusted partner in business solutions."
+          content="VTGS ΙΚΕ: Ολοκληρωμένες συμβουλευτικές και εκπαιδευτικές υπηρεσίες"
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
-
-      <header className={styles.header}>
-        <div className={styles.overlay}>
-          <h1 className={styles.title}>Καλωσήρθατε στην VTGS</h1>
-          <p className={styles.subtitle}>
-            Η Εταιρεία παροχής ολοκληρωμένων συμβουλευτικών και εκπαιδευτικών
-            υπηρεσιών.
-          </p>
+      <Header
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 100,
+          background: "#333333",
+          padding: "0 50px",
+        }}
+      >
+        {/* Flex wrapper για logo + nav */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            height: "100%",
+            width: "100%",
+          }}
+        >
+          <div
+            style={{ color: "#fff", fontSize: "1.5rem", fontWeight: "bold" }}
+          >
+            VTGS ΙΚΕ
+          </div>
+          <Navbar />
         </div>
-      </header>
+      </Header>
 
-      <main className={styles.main}>
-        <section id="about" className={styles.about}>
-          <h2>Λίγα Λόγια για την Επιχείρηση</h2>
-          <p>
-            Η επιχείρηση «VTGS ΜΟΝΟΠΡΟΣΩΠΗ ΙΚΕ» με διακριτικό τίτλο « VTGS ΙΚΕ»
-            παρέχει ολοκληρωμένο σύστημα υπηρεσιών καλύπτοντας κάθε ανάγκη
-            οργανισμού του δημόσιου ή του ιδιωτικού τομέα. Με γνώμονα πάντοτε
-            τις ανάγκες του εκάστοτε πελάτη και προσαρμοζόμενοι στις εξελίξεις
-            των ημερών σκοπός μας είναι η παροχή ολοκληρωμένης υποστήριξης με
-            την προσφορά ρεαλιστικών και ουσιαστικών λύσεων, για τη βελτίωση της
-            ανταγωνιστικότητας των επιχειρήσεων και την αύξηση της
-            αποδοτικότητας και παραγωγικότητας των στελεχών τους. Οι υπηρεσίες
-            της «VTGS ΜΟΝΟΠΡΟΣΩΠΗ ΙΚΕ» προσανατολισμένες στις ιδιαίτερες
-            απαιτήσεις του πελάτη ανανεώνονται και προσαρμόζονται διαρκώς στις
-            αλλαγές και εξελίξεις που υπαγορεύουν τα Διεθνή και Ευρωπαϊκά
-            πρότυπα για την επιτυχία του «Επιχειρείν». Έτσι, καλύπτουν ολοένα
-            και περισσότερους τομείς επιχειρηματικής δράσης μεταδίδοντας
-            εμπειρία σε πραγματικές συνθήκες εργασίας.
-          </p>
-        </section>
-      </main>
+      <Content style={{ margin: 0, padding: 0 }}>
+        {/* Hero Section */}
+        <Hero />
+        {/* ——— Highlights Carousel ——— */}
+        <HighlightsCarousel />
+        {/* About Section */}
+        <About />
+      </Content>
 
-      <Footer />
-    </div>
+      <AppFooter />
+    </Layout>
   );
 }

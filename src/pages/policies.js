@@ -1,8 +1,14 @@
 import Head from "next/head";
+import { Layout, Typography, Collapse, Row, Col, Grid } from "antd";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import { useState } from "react";
-import styles from "../styles/Policies.module.css";
+import AppFooter from "../components/Footer";
+import { CaretRightOutlined } from "@ant-design/icons";
+import { motion } from "framer-motion";
+
+const { Header, Content } = Layout;
+const { Title, Paragraph } = Typography;
+const { Panel } = Collapse;
+const { useBreakpoint } = Grid;
 
 const policies = [
   {
@@ -130,47 +136,98 @@ const policies = [
   },
 ];
 
-export default function Services() {
-  const [expanded, setExpanded] = useState({});
-
-  const toggleExpand = (index) => {
-    setExpanded({ ...expanded, [index]: !expanded[index] });
-  };
+export default function PoliciesPage() {
+  const screens = useBreakpoint();
 
   return (
-    <div className={styles.container}>
+    <Layout>
       <Head>
-        <title>VTGS - Services</title>
+        <title>VTGS - Πολιτικές & Υπηρεσίες</title>
         <meta
           name="description"
-          content="Detailed description of the services offered by VTGS."
+          content="Οι πολιτικές και υπηρεσίες της VTGS."
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
-
-      <main className={styles.main}>
-        <h1>Οι Πολιτικές και οι Υπηρεσίες μας</h1>
-
-        <div className={styles.cardContainer}>
-          {policies.map((policy, index) => (
-            <div className={styles.card} key={index}>
-              <h3>{policy.title}</h3>
-              <p>
-                {expanded[index]
-                  ? policy.fullDescription
-                  : policy.shortDescription}
-              </p>
-              <button onClick={() => toggleExpand(index)}>
-                {expanded[index] ? "Διαβάστε Λιγότερα" : "Διαβάστε Περισσότερα"}
-              </button>
-            </div>
-          ))}
+      <Header
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 100,
+          background: "#333333",
+          padding: "0 24px",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <div style={{ color: "#fff", fontSize: "1.5rem", fontWeight: "bold" }}>
+          VTGS ΙΚΕ
         </div>
-      </main>
+        <div style={{ marginLeft: "auto" }}>
+          <Navbar />
+        </div>
+      </Header>
 
-      <Footer />
-    </div>
+      <Content style={{ padding: "60px 24px", background: "#fafafa" }}>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0, y: 20 },
+            visible: { opacity: 1, y: 0, transition: { staggerChildren: 0.3 } },
+          }}
+        >
+          <Title
+            level={screens.md ? 2 : 3}
+            style={{ textAlign: "center", marginBottom: 32 }}
+          >
+            Οι Πολιτικές και οι Υπηρεσίες μας
+          </Title>
+          <Collapse
+            accordion
+            ghost
+            expandIcon={({ isActive }) => (
+              <CaretRightOutlined rotate={isActive ? 90 : 0} />
+            )}
+            style={{ background: "transparent", border: 0 }}
+          >
+            {policies.map((policy, idx) => (
+              <Panel
+                key={idx}
+                header={
+                  <Title level={4} style={{ margin: 0 }}>
+                    {policy.title}
+                  </Title>
+                }
+                style={{
+                  marginBottom: 16,
+                  background: "#fff",
+                  borderRadius: 8,
+                  overflow: "hidden",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                }}
+              >
+                {policy.fullDescription.split("\n").map((line, i) => (
+                  <Paragraph
+                    key={i}
+                    style={{
+                      marginBottom: 12,
+                      textAlign: "justify",
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    {line.trim()}
+                  </Paragraph>
+                ))}
+              </Panel>
+            ))}
+          </Collapse>
+        </motion.div>
+      </Content>
+
+      <AppFooter />
+    </Layout>
   );
 }

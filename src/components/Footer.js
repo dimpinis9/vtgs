@@ -1,54 +1,84 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faFacebook,
-//   faTwitter,
-//   faLinkedin,
-// } from "@fortawesome/free-brands-svg-icons";
-import styles from "../styles/Footer.module.css";
+import React from "react";
+import { Layout, Row, Col, Typography, Space } from "antd";
+import Link from "next/link";
 
-const Footer = () => {
+const { Footer } = Layout;
+const { Title, Paragraph, Text } = Typography;
+
+export default function AppFooter() {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.footerContent}>
-        <div className={styles.footerSection}>
-          <h3>Σύνδεσμοι</h3>
-          <ul>
-            <li>
-              <a href="/">Αρχική</a>
-            </li>
-            <li>
-              <a href="policies">Οι Πολιτικές μας</a>
-            </li>
-            <li>
-              <a href="services">Οι Υπηρεσίας μας</a>
-            </li>
-          </ul>
-        </div>
-        <div className={styles.footerSection}>
-          <h3>Επικοινωνήστε Μαζί μας</h3>
-          <p>Email: vtgsike@yahoo.com</p>
-          <p>Τηλέφωνο: 213-0314047</p>
-        </div>
-        {/* <div className={styles.footerSection}>
-          <h3>Follow Us</h3>
-          <div className={styles.socialLinks}>
-            <a href="#">
-              <FontAwesomeIcon icon={faFacebook} size="2x" />
-            </a>
-            <a href="#">
-              <FontAwesomeIcon icon={faTwitter} size="2x" />
-            </a>
-            <a href="#">
-              <FontAwesomeIcon icon={faLinkedin} size="2x" />
-            </a>
-          </div>
-        </div> */}
-      </div>
-      <div className={styles.footerBottom}>
-        <p>&copy; 2024 VTGS. All rights reserved.</p>
-      </div>
-    </footer>
-  );
-};
+    <Footer
+      style={{
+        background: "#333333",
+        padding: "40px 50px",
+      }}
+    >
+      <Row gutter={[32, 32]} justify="center">
+        <Col xs={24} sm={12} md={8}>
+          <Title level={4} style={{ color: "#fff" }}>
+            Σύνδεσμοι
+          </Title>
+          <Space direction="vertical">
+            <Link
+              href="/"
+              style={{
+                color: "#e0e0e0",
+                fontSize: "1rem",
+                lineHeight: 1.5,
+                textDecoration: "none",
+              }}
+            >
+              Αρχική
+            </Link>
+            <Link
+              href="/policies"
+              style={{
+                color: "#e0e0e0",
+                fontSize: "1rem",
+                lineHeight: 1.5,
+                textDecoration: "none",
+              }}
+            >
+              Οι Πολιτικές μας
+            </Link>
+            <Link
+              href="/services"
+              style={{
+                color: "#e0e0e0",
+                fontSize: "1rem",
+                lineHeight: 1.5,
+                textDecoration: "none",
+              }}
+            >
+              Οι Υπηρεσίες μας
+            </Link>
+          </Space>
+        </Col>
 
-export default Footer;
+        <Col xs={24} sm={12} md={8}>
+          <Title level={4} style={{ color: "#fff" }}>
+            Επικοινωνία
+          </Title>
+          <Paragraph style={{ margin: 0, color: "#e0e0e0" }}>
+            <Text strong style={{ color: "#fff" }}>
+              Email:
+            </Text>{" "}
+            vtgsike@yahoo.com
+          </Paragraph>
+          <Paragraph style={{ margin: 0, color: "#e0e0e0" }}>
+            <Text strong style={{ color: "#fff" }}>
+              Τηλέφωνο:
+            </Text>{" "}
+            213-0314047
+          </Paragraph>
+        </Col>
+      </Row>
+
+      <div style={{ textAlign: "center", marginTop: 32 }}>
+        <Text style={{ color: "#999999" }}>
+          © {new Date().getFullYear()} VTGS ΙΚΕ. All rights reserved.
+        </Text>
+      </div>
+    </Footer>
+  );
+}
