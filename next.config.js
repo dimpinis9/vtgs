@@ -1,11 +1,17 @@
 // next.config.js
+const withTM = require("next-transpile-modules")([
+  "rc-util",
+  "rc-picker",
+  "@babel/runtime", // προσθέτουμε κι αυτό
+]);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // αν έχεις άλλες ρυθμίσεις, πάρε τες από το παλιό mjs
+  // Αν θες να βοηθήσεις το bundling των ESM modules:
+  experimental: {
+    esmExternals: "loose",
+  },
 };
 
-// αν χρησιμοποιείς still next-transpile-modules:
-const withTM = require("next-transpile-modules")(["rc-util", "rc-picker"]);
-
-export default withTM(nextConfig);
+module.exports = withTM(nextConfig);
