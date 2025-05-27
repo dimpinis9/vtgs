@@ -1,4 +1,3 @@
-import "antd/dist/reset.css"; // AntD v5
 import "../styles/globals.css";
 import { ConfigProvider, theme } from "antd";
 
