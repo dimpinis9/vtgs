@@ -2,16 +2,14 @@
 const withTM = require("next-transpile-modules")([
   "rc-util",
   "rc-picker",
-  "@babel/runtime", // προσθέτουμε κι αυτό
+  "rc-pagination", // <–– προσθήκη εδώ
+  "@babel/runtime",
 ]);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Αν θες να βοηθήσεις το bundling των ESM modules:
-  experimental: {
-    esmExternals: "loose",
-  },
+  // μπορείς να αφαιρέσεις το experimental.esmExternals
 };
 
 module.exports = withTM(nextConfig);
